@@ -1,0 +1,34 @@
+from polygon import RESTClient #import 'RESTClient' class from the 'polygon' module
+import json #provides functions for working with JSON data, allowing me to parse & manipulate JSON objects
+from typing import cast
+from urllib3 import HTTPResponse #'HTTPResponse' class is used to represent an HTTP response
+#returned from the Polygon.ioAPI
+
+API_KEY = 'My_Personal_API_KEY'#defined variable to store my API Key
+#authenticates & accesses API
+
+client = RESTClient(API_KEY) #create an instance for the RESTClient class & pass 'API_KEY' argument
+#Initialize the REST client with your API KEY allowing API requests
+
+aggs = cast( #call the 'get_aggs' method of the 'RESTClient' class to retrieve aggr data on TSLA
+    HTTPResponse,
+    client.get_aggs(
+        'TSLA', #ticker symbol
+        1, #multiplier represents single unit 1 of time frame 
+        'day',#indicates way we want daily aggregate data
+        '2023-01-18', #start of data range
+        '2023-07-17', # end of data range
+        raw=True #set to 'True', indicates we want raw HTTP response from API call
+    ),
+)
+
+data = json.loads(aggs.data)#parse the JSON response data from the 'aggs'HTTPResponse object into a python dictionary
+#'aggs' object contains the raw response data from the API Call
+
+for item in data:
+    if item == 'results':
+        rawData = data[item]
+print(rawData)
+        
+#v = volume, vw = volume weighted average price, o = open, c = close, h = high,  l = low
+#t = Msec timestamp for start of aggregate window, n= number of transactions in aggregate window 
