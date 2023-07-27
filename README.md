@@ -3,8 +3,6 @@ Hi!
 
 Welcome to my 1st Project on GitHub :) 
 
---> Business Inquiries: hunta.garcia@gmail.com 
-
 Below is an overview of my project to improve my skills in Python
 
 Goal: Retrieve stock data with my personal API key from Polygon.io using Juypter Notebook
