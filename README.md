@@ -3,7 +3,7 @@ Hi!
 
 Welcome to my 1st Project on GitHub :) 
 
--->Business Inquiries: hunta.garcia@gmail.com 
+--> Business Inquiries: hunta.garcia@gmail.com 
 
 Below is an overview of my project to improve my skills in Python
 
